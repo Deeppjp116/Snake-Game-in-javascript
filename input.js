@@ -1,7 +1,31 @@
 let inputDiraction = { x: 0, y: 0 };
+let lastinputDirection = { x: 0, y: 0 };
 
+window.addEventListener('keydown', (e) => {
+  switch (e.key) {
+    case 'ArrowUp':
+      if (lastinputDirection.y !== 0) break;
+      inputDiraction = { x: 0, y: -1 };
+      break;
 
-export default getInputDireaction(){
-     return inputDiraction 
+    case 'ArrowDown':
+      if (lastinputDirection.y !== 0) break;
+      inputDiraction = { x: 0, y: 1 };
+      break;
+    case 'ArrowLeft':
+      if (lastinputDirection.x !== 0) break;
+      inputDiraction = { x: -1, y: 0 };
+      break;
+
+    case 'ArrowRight':
+      if (lastinputDirection.x !== 0) break;
+      inputDiraction = { x: 1, y: 0 };
+      break;
+  }
+});
+
+export function getInputDireaction() {
+  console.log('get the getInputDireaction');
+  lastinputDirection = inputDiraction;
+  return inputDiraction;
 }
- 
